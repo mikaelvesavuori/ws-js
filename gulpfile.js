@@ -6,10 +6,10 @@ const browsersync = require("browser-sync");
 const eslint = require("gulp-eslint");
 const reporter = require("gulp-reporter");
 const plumber = require("gulp-plumber");
-
+const ts = require("gulp-typescript");
 
 gulp.task("babel", function() {
-	return gulp.src("app.js")
+	gulp.src("app.js")
 		.pipe(babel({
 			presets: ["es2015"]
 		}))
@@ -17,28 +17,33 @@ gulp.task("babel", function() {
 });
 
 gulp.task("eslint", function() {
-	return gulp.src("app.js")
+	gulp.src("app.js")
 		.pipe(plumber())
 		.pipe(eslint()).on("error", errorHandler)
 		.pipe(reporter())
 		.pipe(eslint.format());
-})
+});
+
+gulp.task("typescript", function () {
+	return gulp.src("typescript/**/*.ts")
+		.pipe(ts({
+			noImplicitAny: false,
+			out: "typescript.js"
+		}))
+		.pipe(gulp.dest("prod/"));
+});
+
+gulp.task("default", ["watch"], function() { });
+
+gulp.task("watch", ["browsersync"], function() { });
 
 gulp.task("browsersync", function() {
 	browsersync(config.browsersync);
 
-	gulp.watch("*.{html,css}", browsersync.reload);
-
-	gulp.watch("Static/scripts/js/**/*.js", ["babel", "eslint"], browsersync.reload);
+	gulp.watch("*.{css,html}", browsersync.reload);
+	gulp.watch("**/*.js", ["babel", "eslint"], browsersync.reload);
+	gulp.watch("**/*.ts", ["typescript"], browsersync.reload);
 });
-
-gulp.task("default", ["browsersync", "watch"]);
-
-gulp.task("watch", function() {
-	gulp.watch("*.{html,css}", browsersync.reload);
-	gulp.watch("*.js", ["babel"],  browsersync.reload);
-});
-
 
 function errorHandler (error) {
 	console.log(error.toString());
