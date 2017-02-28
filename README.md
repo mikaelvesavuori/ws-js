@@ -3,3 +3,11 @@ JavaScript blir en allt viktigare del för både frontend- och backendutvecklare
 
 ## Mål
 Kunna läsa ES6-kod, förstå transpilation och kunna utföra sådan, samt skapa enkla egna script
+
+## Fördjupning
+- [https://plainjs.com](PlainJS)
+- [http://youmightnotneedjquery.com](You Might Not Need jQuery)
+- [https://developers.google.com/web/fundamentals/getting-started/primers/service-workers](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers)
+- [http://tutorialzine.com/2016/07/learn-typescript-in-30-minutes/](Learn Typescript in 30 minutes)
+- [https://tylermcginnis.com/imperative-vs-declarative-programming/](Imperative vs Declarative Programming)
+- [https://medium.freecodecamp.com/functional-programming-in-js-with-practical-examples-part-1](Functional Programming in JS with Practical Examples, part 1)
