@@ -1,4 +1,5 @@
-var burger: string = 'hamburger',     // String
+/*
+	var burger: string = 'hamburger',     // String
 	calories: number = 300,           // Numeric
 	tasty: boolean = true;            // Boolean
 
@@ -13,3 +14,6 @@ function speak(food: string, energy: number): void {
 }
 
 speak(burger, calories);
+
+let const = "asdf";
+*/

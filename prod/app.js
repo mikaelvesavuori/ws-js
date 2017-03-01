@@ -1,9 +1,16 @@
 "use strict";
 
-var asdf = [1, 2, 3, 4];
-console.log(asdf);
+document.addEventListener("click", function (e) {
+	var object = "Mikael bor härinne i denna låda";
+	console.log("Inside " + object);
 
-var x = void 0;
+	e.stopPropagation();
 
-console.log(document.querySelector("body"));
-console.log("console");
+	//e.target.classList.toggle("pimped");
+
+	if (e.target.classList.contains("box")) {
+		e.target.classList.add("pimped");
+	}
+}, false);
+
+console.log("Outside " + object);

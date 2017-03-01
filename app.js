@@ -1,7 +1,15 @@
-const asdf = [1,2,3,4];
-console.log(asdf);
+document.addEventListener("click", (e) => {
+	let object = "Mikael bor härinne i denna låda";
+	console.log(`Inside ${object}`);
 
-let x;
+	e.stopPropagation();
 
-console.log(document.querySelector("body"));
-console.log("console");
+	//e.target.classList.toggle("pimped");
+
+	if (e.target.classList.contains("box")) {
+		e.target.classList.add("pimped");
+	}
+}, false);
+
+
+console.log(`Outside ${object}`);
